@@ -1,0 +1,6 @@
+smls
+pandas
+python-dotenv
+yfinance
+lxml
+mftool
