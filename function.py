@@ -12,9 +12,9 @@ load_dotenv(find_dotenv())
 def main():
     df_final=pd.DataFrame(columns=['fund-name', 'date', 'nav', 'price', '1-day-diff', '1-day-percentage'])
 
-    units_own=[1.905,127.465,140.809,27.217]
-    scheme_code=[133810,120465,119781,118759]
-    total_investment=17499
+    units_own=[1.905,127.465,140.809,27.217]  # add units owned by you for various mutual funds
+    scheme_code=[133810,120465,119781,118759]  # add scheme code  for various mutual funds owned by you (order should be same as above)
+    total_investment=17499                     # total investment done by you
 
 
     for units,scheme in zip(units_own,scheme_code):
