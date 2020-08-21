@@ -50,9 +50,24 @@ You can also check out the Quick Start Guide. When you will be done with testing
 
 The next step is to install requirements: pip install -r requirements. Please, remember, SeamlessCloud requires Python>=3.6, so you may need to use pip3.
 
-We are almost there! Run our script on the SeamlessCloud: smls run. If you set up everything correctly, you will receive an email World Indices Daily Report. And finally, let's deploy our script to execute it on schedule, say 9 AM every day (UTC): smls publish --name "World Indices Daily Report" --schedule "0 9 * * *". If you are new to cron schedule, check this service https://crontab.guru.
+We are almost there! Run our script on the SeamlessCloud: smls run. If you set up everything correctly, you will receive an email mutual fund daily report. And finally, let's deploy our script to execute it on schedule, say 9 AM every day (UTC): smls publish --name "Mutual fund daily report" --schedule "0 9 * * *". If you are new to cron schedule, check this service https://crontab.guru.
+
+# Files:
+
+1. function.py: It conatines the core functional code. Please use the main function otherwise seamless cloud will not work.
+2. send-mail.py: contains code for sending mail.
+3. .env : it contains the mail id and passowrd. To provide more secure way we have used this file with dot-env library.
 
 
+# Further playing:
+
+You can play further with the code if you want more information included in the report. Another thing you have to do manually is that each time you do new investment or you have SIP you have to manually change this part:
+
+    units_own=[1.905,127.465,140.809,27.217]  # add units owned by you for various mutual funds
+    scheme_code=[133810,120465,119781,118759]  # add scheme code  for various mutual funds owned by you (order should be same as above)
+    total_investment=17499                     # total investment done by you
+
+If someone find a way automate this process also kudos. Please create a pull request I will happily add that functionality. Anyway after changing the code, to re-deploy the job into seamless code you can use the smls publish command with same job name, if you want to change scheduling part also same process.
 
 # Example of mail with generated report:
 
